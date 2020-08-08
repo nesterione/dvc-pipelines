@@ -9,22 +9,22 @@ step_1:
   - path: output/step_1.txt
     md5: 20d46f66f60d266d39b380b41c615a76
 step_2:
-  cmd: python -m scripts.action_b --input output/step_1.txt --output output/step_2.txt
+  cmd: python -m scripts.action_c --input output/step_1.txt --output output/step_2.txt
   deps:
   - path: output/step_1.txt
     md5: 20d46f66f60d266d39b380b41c615a76
-  - path: scripts/action_b.py
-    md5: ef296993b0420d57049bba8e9e2249ef
-  outs:
-  - path: output/step_2.txt
-    md5: de1c9818adbb35b665c242d7617e1ec9
-step_3:
-  cmd: python -m scripts.action_c --input output/step_2.txt --output output/step_3.txt
-  deps:
-  - path: output/step_2.txt
-    md5: de1c9818adbb35b665c242d7617e1ec9
   - path: scripts/action_c.py
     md5: 966b18cd6fb5a444c0ebe0f6ae8f665f
   outs:
+  - path: output/step_2.txt
+    md5: 8530b2eb7e06e4533fb59a2e911d996c
+step_3:
+  cmd: python -m scripts.action_b --input output/step_2.txt --output output/step_3.txt
+  deps:
+  - path: output/step_2.txt
+    md5: 8530b2eb7e06e4533fb59a2e911d996c
+  - path: scripts/action_b.py
+    md5: ef296993b0420d57049bba8e9e2249ef
+  outs:
   - path: output/step_3.txt
-    md5: 22d8d2108573aaae580529463979f103
+    md5: 6f56a48be6b35a379b2acf60c19868bc

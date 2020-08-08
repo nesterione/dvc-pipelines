@@ -7,16 +7,16 @@ stages:
     outs:
     - output/step_1.txt
   step_2:
-    cmd: python -m scripts.action_b --input output/step_1.txt --output output/step_2.txt
+    cmd: python -m scripts.action_c --input output/step_1.txt --output output/step_2.txt
     deps:
     - output/step_1.txt
-    - scripts/action_b.py
+    - scripts/action_c.py
     outs:
     - output/step_2.txt
   step_3:
-    cmd: python -m scripts.action_c --input output/step_2.txt --output output/step_3.txt
+    cmd: python -m scripts.action_b --input output/step_2.txt --output output/step_3.txt
     deps:
     - output/step_2.txt
-    - scripts/action_c.py
+    - scripts/action_b.py
     outs:
     - output/step_3.txt
