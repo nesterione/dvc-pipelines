@@ -19,3 +19,28 @@ conda activate ./.dvcenv
 pip install -r requirements.txt
 ```
 
+4. Init git repo 
+
+```
+git init
+```
+
+5. Init dvc 
+
+```
+dvc init
+```
+
+6. Configure artifact storage. NOTE: Here I stored it directly in repository, it is not how it supposed to be, never use current repo to store artifacs, read more https://dvc.org/doc/command-reference/remote/add
+
+```
+dvc remote add -d mylocal ./dvc-storage
+```
+
+7. DVC data 
+
+```
+dvc add data
+git commit -m "Added data"
+dvc push 
+```
