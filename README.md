@@ -45,3 +45,13 @@ git add .
 git commit -m "Added data"
 dvc push 
 ```
+
+8. Add step 
+
+```
+dvc run -n step_1 -d scripts/action_a.py -d data/raw.txt -o output/step_1.txt "python -m scripts.action_a --input data/raw.txt --output output/step_1.txt"
+dvc run -n step_2 -d scripts/action_b.py -d output/step_1.txt -o output/step_2.txt "python -m scripts.action_b --input output/step_1.txt --output output/step_2.txt"
+dvc run -n step_3 -d scripts/action_c.py -d output/step_2.txt -o output/step_3.txt "python -m scripts.action_c --input output/step_2.txt --output output/step_3.txt"
+```
+
+9. Repro
