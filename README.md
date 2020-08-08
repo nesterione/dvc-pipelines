@@ -41,6 +41,7 @@ dvc remote add -d mylocal ./dvc-storage
 
 ```
 dvc add data
+git add .
 git commit -m "Added data"
 dvc push 
 ```

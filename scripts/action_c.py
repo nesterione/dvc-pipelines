@@ -7,5 +7,5 @@ args = parser.parse_args()
 
 with open(args.input, 'r') as f_in:
 	with open(args.output, 'w') as f_out:
-		s = f_in.read() + ' --> Action A'
+		s = f_in.read() + ' --> Action C'
 		f_out.write(s)
